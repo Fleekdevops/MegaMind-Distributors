@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="icon" type="image/png" href="./favicon.png">
 <title>Megamind Distributors – Plumbing, Hardware & Home Finishing, Kenya</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -116,7 +115,18 @@ footer{background:var(--navy);color:#C9D3E0;padding:40px 0 24px;font-size:14px}f
 .tt{position:fixed;left:50%;transform:translateX(-50%);bottom:90px;background:var(--navy);color:#fff;padding:10px 18px;border-radius:8px;z-index:60;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s}.tt.on{opacity:1}
 @media (max-width:700px){.mb{grid-template-columns:1fr}.mb .ph{border-radius:12px 12px 0 0;aspect-ratio:4/3;min-height:0}}
 .sl2{transition:opacity 1.6s ease}.sl2.on svg,.sl2.on img{animation:none}.hs img{object-position:center}.hc .in{padding:0 20px}
-.hc{padding-left:0;padding-right:0}</style>
+.hc{padding-left:0;padding-right:0}
+.hero .wrap{grid-template-columns:1fr;align-content:center;min-height:560px;padding-top:70px;padding-bottom:130px}
+.hero .wrap>div{max-width:780px}
+.hero h1{font-size:clamp(46px,7.2vw,88px)}
+.hc{bottom:58px;background:none;padding-bottom:0}
+@media (min-width:821px){.hero::after{background:linear-gradient(0deg,rgba(5,12,22,.5) 0%,transparent 38%),linear-gradient(90deg,rgba(10,26,46,.86) 0%,rgba(10,26,46,.5) 55%,rgba(10,26,46,.12) 100%)}}
+.qbar{position:relative;z-index:5;margin-top:-46px;padding:0 0 30px}
+.qb2{display:grid;grid-template-columns:auto minmax(120px,.8fr) minmax(200px,1.6fr) auto;gap:14px;align-items:center;background:var(--card);border-top:5px solid var(--orange);border-radius:14px;box-shadow:0 14px 40px rgba(15,37,64,.22);padding:20px 22px}
+.qtt b{display:block;font:700 28px "Barlow Condensed",sans-serif;color:var(--head);line-height:1.05}.qtt span{font-size:13px;color:var(--mute)}
+.qb2 input{margin:0}.qb2 .btn{white-space:nowrap}
+@media (max-width:900px){.qb2{grid-template-columns:1fr}.qbar{margin-top:-34px}.hero .wrap{min-height:0;padding-top:48px;padding-bottom:116px}}
+</style>
 </head>
 <body>
 <header><div class="wrap nav">
@@ -129,12 +139,9 @@ footer{background:var(--navy);color:#C9D3E0;padding:40px 0 24px;font-size:14px}f
 <div class="hero"><div class="hs" id="hs" aria-hidden="true"></div><div class="wrap">
 <div><span class="kick">Plumbing · Hardware · Home finishing</span><h1>Plumbing and home finishing supplies you can count on.</h1>
 <p>Valves, taps, fittings, cisterns, sinks, bathroom accessories, locks and drawer hardware, supplied in bulk or in small quantities by Megamind Distributors.</p>
-<div class="cta"><a class="btn" href="#products">Shop Products</a><a class="btn ghost" href="#quote">Get a Quote</a></div></div>
-<form class="quote qf"><h2>Quick quotation</h2><p>Opens WhatsApp with your request ready to send.</p>
-<label>Your name<input name="n" required autocomplete="name"></label>
-<label>What do you need?<textarea name="i" rows="3" required placeholder="e.g. 200 gate valves ½ inch, 50 double bowl sinks"></textarea></label>
-<button class="btn" style="width:100%;margin-top:14px">Send on WhatsApp</button></form>
+<div class="cta"><a class="btn" href="#products">Shop Products</a><a class="btn ghost" href="#home" data-scroll="qform">Get a Quote</a></div></div>
 </div><div class="hc"><div class="in"><span id="hc"></span><div id="hd" class="hd"></div></div></div></div>
+<div class="qbar"><div class="wrap"><form class="qf qb2" id="qform"><div class="qtt"><b>Quick quotation</b><span>Tell us what you need and we reply on WhatsApp.</span></div><input name="n" required autocomplete="name" placeholder="Your name" aria-label="Your name"><input name="i" required placeholder="What do you need? e.g. 50 sinks" aria-label="What do you need"><button class="btn">Send on WhatsApp</button></form></div></div>
 <div class="strip"><div class="wrap"><div><b>Shop in Eldoret</b><span>Open Monday to Saturday, 8am to 5pm</span></div><div><b>Delivery countrywide</b><span>Arrange delivery by phone: 0721 304 084</span></div><div><b>Pay by M-Pesa</b><span>Use 0721 304 084. Bank payment coming soon.</span></div></div></div>
 <section><div class="wrap"><div class="sh"><h2>Shop by category</h2></div><div class="grid cats"></div></div></section>
 <section class="alt"><div class="wrap"><div class="sh"><h2>Popular products</h2><p>Fast-moving items our customers order most. Ask for today’s price and stock.</p></div><div class="grid" id="feat"></div><p style="margin-top:20px"><a class="btn" href="#products">See all products</a></p></div></section>
@@ -331,6 +338,7 @@ if(t=g("[data-qpl]")){Q[+t.dataset.qpl].q++;renderQ();return}
 if(t=g("[data-qr]")){Q.splice(+t.dataset.qr,1);renderQ();return}
 if(g("#qsend")&&Q.length){const nm=$("qnm").value.trim(),lo=$("qloc").value.trim();window.open(link("Hello Megamind Distributors, I would like a quotation for:\n"+Q.map((x,i)=>`${i+1}. ${x.n} × ${x.q}${x.note?" ("+x.note+")":""}`).join("\n")+(nm?"\nName: "+nm:"")+(lo?"\nDelivery location: "+lo:"")),"_blank","noopener")}});
 document.addEventListener("input",e=>{const t=e.target.closest("[data-qn]");if(t&&Q[+t.dataset.qn])Q[+t.dataset.qn].note=t.value});
+document.addEventListener("click",e=>{const a=e.target.closest("[data-scroll]");if(!a)return;e.preventDefault();const t=document.getElementById(a.dataset.scroll);if(!t)return;t.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth",block:"center"});setTimeout(()=>{const i=t.querySelector("input");if(i)i.focus({preventScroll:true})},600)});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAll()});
 addEventListener("hashchange",route);draw();renderQ();route();
 </script>
