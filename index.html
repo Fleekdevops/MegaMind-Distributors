@@ -127,6 +127,15 @@ footer{background:var(--navy);color:#C9D3E0;padding:40px 0 24px;font-size:14px}f
 .qtt b{display:block;font:700 28px "Barlow Condensed",sans-serif;color:var(--head);line-height:1.05}.qtt span{font-size:13px;color:var(--mute)}
 .qb2 input{margin:0}.qb2 .btn{white-space:nowrap}
 @media (max-width:900px){.qb2{grid-template-columns:1fr}.qbar{margin-top:-34px}.hero .wrap{min-height:0;padding-top:48px;padding-bottom:116px}}
+
+.mb{display:block;overflow:hidden;position:relative}
+.mbs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.mb .ph{aspect-ratio:auto;max-height:none;min-height:360px;height:auto;align-self:stretch;position:relative;overflow:hidden;border-radius:12px 0 0 12px;background:#fff}
+.mb .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.mb .ph img.sl{display:none}.mb .ph img.sl.on{display:block}
+.mb .mi{position:relative;z-index:1;background:var(--card);min-width:0}
+.mb .mx{position:absolute;top:10px;right:10px;margin:0;z-index:6}
+@media (max-width:700px){.mbs{display:block}.mb .ph{height:min(80vw,380px);min-height:0;border-radius:12px 12px 0 0}.mb .mx{position:absolute;top:10px;right:10px;margin:0}.mb .mi{padding:20px 18px 26px}}
 </style>
 </head>
 <body>
@@ -217,7 +226,7 @@ footer{background:var(--navy);color:#C9D3E0;padding:40px 0 24px;font-size:14px}f
 <div><h3>Contact</h3><p>WhatsApp and M-Pesa: 0721 304 084</p><p>Mon to Sat, 8am to 5pm</p></div>
 <div><h3>Follow us</h3><a href="https://www.instagram.com/megamind_Distributors254" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@MegamindDistributors254" target="_blank" rel="noopener">TikTok</a></div>
 </div><div class="wrap" style="display:block;margin-top:22px;padding-top:14px;border-top:1px solid #25364D">© 2026 Megamind Distributors. Prices in KSh and subject to change.</div></footer>
-<div class="md" id="md" hidden role="dialog" aria-modal="true" aria-labelledby="mt"><div class="mb"><button class="mx" id="mx" aria-label="Close">×</button><div class="ph" id="mph"></div><div class="mi"><small id="mc"></small><h3 id="mt"></h3><div class="pr" id="mp"></div><div class="sz" id="ms"></div><p id="mdsc"></p><ul id="mbn"></ul><div class="mbtn"><button class="btn" id="madd">Add to quote list</button><a class="btn dt" id="mwa" target="_blank" rel="noopener" href="#">Ask on WhatsApp</a></div></div></div></div>
+<div class="md" id="md" hidden role="dialog" aria-modal="true" aria-labelledby="mt"><div class="mb"><button class="mx" id="mx" aria-label="Close">×</button><div class="mbs"><div class="ph" id="mph"></div><div class="mi"><small id="mc"></small><h3 id="mt"></h3><div class="pr" id="mp"></div><div class="sz" id="ms"></div><p id="mdsc"></p><ul id="mbn"></ul><div class="mbtn"><button class="btn" id="madd">Add to quote list</button><a class="btn dt" id="mwa" target="_blank" rel="noopener" href="#">Ask on WhatsApp</a></div></div></div></div></div>
 <div class="qd" id="qd" hidden role="dialog" aria-modal="true" aria-labelledby="qt"><div class="qb"><div class="qh"><h3 id="qt">Your quote list</h3><button class="mx" id="qx" aria-label="Close">×</button></div><div id="ql"></div><label>Your name<input id="qnm" autocomplete="name"></label><label>Delivery location<input id="qloc" placeholder="Town or estate"></label><button class="btn" id="qsend" style="width:100%;margin-top:14px">Send quote list on WhatsApp</button></div></div>
 <button class="qp" id="qp" hidden>Quote list (<span id="qn">0</span>)</button><div class="tt" id="tt" role="status" aria-live="polite"></div>
 <a class="wa" data-wa="Hello Megamind Distributors, I would like to make an inquiry." href="#home">WhatsApp</a>
