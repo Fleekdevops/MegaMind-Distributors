@@ -373,6 +373,7 @@ if(g("#qsend")&&Q.length){const nm=$("qnm").value.trim(),lo=$("qloc").value.trim
 document.addEventListener("input",e=>{const t=e.target.closest("[data-qn]");if(t&&Q[+t.dataset.qn])Q[+t.dataset.qn].note=t.value});
 document.addEventListener("click",e=>{const a=e.target.closest("[data-scroll]");if(!a)return;e.preventDefault();const t=document.getElementById(a.dataset.scroll);if(!t)return;t.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth",block:"center"});setTimeout(()=>{const i=t.querySelector("input");if(i)i.focus({preventScroll:true})},600)});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAll()});
+document.querySelectorAll(".logo").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();if(location.hash&&location.hash!=="#home")location.hash="#home";window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"})}));
 addEventListener("hashchange",route);draw();renderQ();route();
 </script>
 </body>
